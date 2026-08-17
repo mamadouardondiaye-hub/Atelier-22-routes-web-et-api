@@ -1,13 +1,7 @@
-# Atelier 22 — Routes web + API — Mamadou Ardo Ndiaye (ESP 221)
-
-Reproduction fidèle de l'atelier du prof (base :
-[bbabadara/ateliers-pratiques-php](https://github.com/bbabadara/ateliers-pratiques-php)/atelier-22-routes-web-et-api)
-+ exercice guidé complété (tous les TODO).
+# Atelier 22 — Routes web + API 
 
 Pas de base de données ici : le stockage est un simple fichier `data/books.json` — aucune
 adaptation PostgreSQL n'était nécessaire pour cet atelier.
-
-## `exemples/` — reproduction fidèle
 
 Mini-application complète : un même `Router` sert des **routes web** (HTML, `PageController`) et
 des **routes API** (JSON, `BookApiController`), avec une page catalogue dont la liste est chargée
@@ -40,7 +34,7 @@ php -S localhost:8081 router.php
 # http://localhost:8081/books
 ```
 
-## Testé en réel (curl, pas juste relu)
+## Testé en réel 
 
 - `GET /` et `GET /books` → 200
 - `POST /api/books/3/toggle` → bascule `disponible` correctement
