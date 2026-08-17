@@ -6,6 +6,8 @@ namespace App\Controllers;
 use App\Repositories\BookRepository;
 use Core\Response;
 
+// Contrôleur API : contrairement à PageController, il ne renvoie jamais de HTML,
+// toujours un objet Response (donc du JSON) pour que public/js/books.js puisse l'exploiter.
 class BookApiController
 {
     public function __construct(private BookRepository $books) {}
@@ -13,6 +15,17 @@ class BookApiController
     public function index(): Response
     {
         return Response::json($this->books->all());
+    }
+
+    // Récupère un seul livre par son id (utile pour une fiche détail plus tard)
+    public function show(string $id): Response
+    {
+        $livre = $this->books->find((int) $id);
+        if ($livre === null) {
+            return Response::error('Livre introuvable', 404);
+        }
+
+        return Response::json($livre);
     }
 
     public function store(): Response

@@ -10,14 +10,14 @@ class PageController
     public function home(): string
     {
         return View::render('home', [
-            'titre' => 'Exercice — Routes web + API',
+            'titre' => 'Routes web + API',
         ]);
     }
 
     public function books(): string
     {
         return View::render('books', [
-            'titre' => 'Catalogue (à compléter)',
+            'titre' => 'Catalogue des livres',
         ]);
     }
 }

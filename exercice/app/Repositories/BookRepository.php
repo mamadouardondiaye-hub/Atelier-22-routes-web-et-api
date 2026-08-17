@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Repositories;
 
+// Pas de MySQL pour cet atelier : les livres sont stockés dans data/books.json.
+// C'est volontairement simple pour se concentrer sur les routes web/api, pas sur la BDD.
 class BookRepository
 {
     public function __construct(private string $fichier) {}
