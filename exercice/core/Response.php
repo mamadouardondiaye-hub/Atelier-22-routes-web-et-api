@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Core;
 
+// Petite classe pour uniformiser les réponses JSON de l'API :
+// succès -> {"data": ...}, erreur -> {"error": "...", "code": 4xx}
 class Response
 {
     public function __construct(

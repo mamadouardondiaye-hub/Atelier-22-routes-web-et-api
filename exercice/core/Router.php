@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace Core;
 
+// Le même Router gère les pages HTML (routes web) et les endpoints JSON (routes api) :
+// - si le contrôleur renvoie un string  -> c'est du HTML
+// - si le contrôleur renvoie un Response -> c'est du JSON
 class Router
 {
     private array $routes = [];
@@ -33,6 +36,8 @@ class Router
 
     public function dispatch(string $method, string $path, Container $container): void
     {
+        // Un <form> HTML ne peut pas envoyer DELETE directement, donc on accepte
+        // un POST classique avec un champ caché _method=DELETE à la place.
         if ($method === 'POST' && strtoupper($_POST['_method'] ?? '') === 'DELETE') {
             $method = 'DELETE';
         }

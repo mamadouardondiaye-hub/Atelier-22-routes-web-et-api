@@ -4,6 +4,7 @@ declare(strict_types=1);
 use App\Controllers\BookApiController;
 
 $router->get('/api/books', [BookApiController::class, 'index']);
+$router->get('/api/books/{id}', [BookApiController::class, 'show']);
 $router->post('/api/books', [BookApiController::class, 'store']);
 
 // TODO 1b — Route API : POST /api/books/{id}/toggle → BookApiController@toggle

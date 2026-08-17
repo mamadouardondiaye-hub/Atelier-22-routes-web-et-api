@@ -6,6 +6,7 @@
     const liste = document.getElementById('liste-livres');
     const form = document.getElementById('form-livre');
     const message = document.getElementById('message');
+    const btnRafraichir = document.getElementById('btn-rafraichir');
 
     function afficherMessage(texte, ok) {
         message.textContent = texte;
@@ -128,5 +129,7 @@
         }
     });
 
+    // Le bouton "Rafraîchir" relance simplement le même fetch que le chargement initial
+    btnRafraichir.addEventListener('click', chargerLivres);
     chargerLivres();
 })();
